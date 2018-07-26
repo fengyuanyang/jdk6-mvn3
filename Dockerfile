@@ -1,6 +1,6 @@
 FROM jhouzard/docker-jdk6-mvn3
 
-MAINTAINER OwenYang <owen.yang@audatex.com>
+MAINTAINER OwenYang <coolsealtw@hotmail.com>
 RUN apt-get update \
  && apt-get install -y git vim \
  && apt-get clean \
