@@ -15,3 +15,11 @@ RUN (\
   mv /opt/apache-tomcat* /opt/tomcat && \
   rm /tmp/tomcat7.tar.gz)
 
+RUN rm -fr /opt/apache-maven-${MAVEN_VERSION} /opt/maven
+ENV MAVEN_VERSION=3.2.5
+
+# Install maven
+RUN wget --no-verbose -O /tmp/apache-maven-${MAVEN_VERSION}.tar.gz http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+ && tar xzf /tmp/apache-maven-${MAVEN_VERSION}.tar.gz -C /opt/ \
+ && ln -s /opt/apache-maven-${MAVEN_VERSION} /opt/maven \
+ && rm -f /tmp/apache-maven-${MAVEN_VERSION}.tar.gz
